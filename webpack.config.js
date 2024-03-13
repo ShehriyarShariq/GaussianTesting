@@ -23,7 +23,7 @@ module.exports = {
         },
       },
       {
-        test: /\.Worker\.js$/,
+        test: /\.sort-worker\.js$/,
         use: { loader: 'worker-loader' },
       },
       // Add CSS loaders if needed
