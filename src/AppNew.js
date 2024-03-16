@@ -25,9 +25,9 @@
 // export default App;
 
 import React, { useEffect, useRef, useState } from 'react'
-import * as SPLAT from 'quick-viewer-old'
+import * as SPLAT from '@xspada/xspada-quick-viewer'
 
-function App() {
+function AppNew() {
   const scene = useRef(null)
   const camera = useRef(null)
   const renderer = useRef(null)
@@ -76,8 +76,8 @@ function App() {
 
       if (progress == 1) {
         setTimeout(() => {
-          // scene.current.rotateObject(0, rotateByOnAxis(90, 'x'))
-          scene.current.rotate(rotateByOnAxis(90, 'x'))
+          scene.current.rotateObject(0, rotateByOnAxis(90, 'x'))
+          // scene.current.rotate(rotateByOnAxis(90, 'x'))
           // scene.current.limitBox(-0.5, 0.5, -0.5, 0.5, -0.5, 0.5)
           controls.current.setPositionAndRotation(
             new SPLAT.Vector3(0.75, -0.75, 0.75),
@@ -97,8 +97,8 @@ function App() {
 
       if (progress == 1) {
         setTimeout(() => {
-          // scene.current.rotateObject(0, rotateByOnAxis(90, 'x'))
-          scene.current.rotate(rotateByOnAxis(90, 'x'))
+          scene.current.rotateObject(0, rotateByOnAxis(90, 'x'))
+          // scene.current.rotate(rotateByOnAxis(90, 'x'))
           // scene.current.limitBox(-0.5, 0.5, -0.5, 0.5, -0.5, 0.5)
           controls.current.setPositionAndRotation(
             new SPLAT.Vector3(0.75, -0.75, 0.75),
@@ -185,8 +185,7 @@ function App() {
 
       controls.current = new SPLAT.OrbitControls(
         camera.current,
-        // renderer.current.canvas,
-        renderer.current.domElement,
+        renderer.current.canvas,
       )
 
       main()
@@ -379,8 +378,7 @@ function App() {
       <div
         ref={(el) =>
           el && renderer.current
-            ? // ? el.appendChild(renderer.current.canvas)
-              el.appendChild(renderer.current.domElement)
+            ? el.appendChild(renderer.current.canvas)
             : null
         }
         style={{
@@ -673,4 +671,4 @@ function App() {
   )
 }
 
-export default App
+export default AppNew
