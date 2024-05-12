@@ -2,12 +2,14 @@ import { OrbitControls, TransformControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Leva, useControls } from 'leva'
 import { useEffect, useRef, useState } from 'react'
-import { Splat } from './components/splat/Splat'
+// import { Splat } from './components/splat/Splat'
+import SplatMeshComponent from './components/SplatMesh/SplatMeshComponent'
+import CustomShaderMesh from './CustomShaderMesh'
 
 const urls = [
   'https://antimatter15.com/splat-data/train.splat',
   'https://firebasestorage.googleapis.com/v0/b/mne-app-596f1.appspot.com/o/pepsi.splat?alt=media&token=4185a923-c2e0-47ba-a6e9-f308e8ef643a',
-  // 'https://antimatter15.com/splat-data/plush.splat',
+  'https://antimatter15.com/splat-data/plush.splat',
   // 'https://antimatter15.com/splat-data/truck.splat',
   // 'https://antimatter15.com/splat-data/garden.splat',
   // 'https://antimatter15.com/splat-data/treehill.splat',
@@ -67,16 +69,18 @@ function NewThreeFiber() {
         style={{
           height: '100%',
           width: '100%',
-          backgroundColor: 'black',
+          backgroundColor: 'white',
         }}
-        gl={{ antialias: false }}
+        gl={{ antialias: false, preserveDrawingBuffer: true }}
         dpr={effectiveDpr}
       >
         <OrbitControls ref={orbit as any} />
 
+        <SplatMeshComponent url={urls[1]} />
+
         <TransformControls ref={transform as any}>
           <group position={[0, 0, 0]}>
-            <Splat url={urls[1]} maxSplats={effectiveSplats} />
+            <CustomShaderMesh />
           </group>
         </TransformControls>
       </Canvas>

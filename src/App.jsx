@@ -1,29 +1,3 @@
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import React, { useEffect, useRef, useState } from 'react'
 import * as SPLAT from '@xspada/xspada-quick-viewer'
 
@@ -89,22 +63,28 @@ function App() {
   }
 
   const handleSplatUpload = async (e) => {
-    const file = e.target.files[0]
+    await SPLAT.Loader.LoadAsync(
+      'https://firebasestorage.googleapis.com/v0/b/mne-app-596f1.appspot.com/o/pepsi.splat?alt=media&token=4185a923-c2e0-47ba-a6e9-f308e8ef643a',
+      scene.current,
+      (progress) => {},
+    )
 
-    await SPLAT.Loader.LoadFromFileAsync(file, scene.current, (progress) => {
-      console.log('Loading PLY file: ' + progress)
+    // const file = e.target.files[0]
 
-      if (progress == 1) {
-        // setTimeout(() => {
-        //   scene.current.rotate(rotateByOnAxis(90, 'x'))
-        //   // scene.current.limitBox(-0.5, 0.5, -0.5, 0.5, -0.5, 0.5)
-        //   controls.current.setPositionAndRotation(
-        //     new SPLAT.Vector3(0.75, -0.75, 0.75),
-        //     new SPLAT.Vector3(0, 0, 0),
-        //   )
-        // }, 1000)
-      }
-    })
+    // await SPLAT.Loader.LoadFromFileAsync(file, scene.current, (progress) => {
+    //   console.log('Loading PLY file: ' + progress)
+
+    //   if (progress == 1) {
+    //     // setTimeout(() => {
+    //     //   scene.current.rotate(rotateByOnAxis(90, 'x'))
+    //     //   // scene.current.limitBox(-0.5, 0.5, -0.5, 0.5, -0.5, 0.5)
+    //     //   controls.current.setPositionAndRotation(
+    //     //     new SPLAT.Vector3(0.75, -0.75, 0.75),
+    //     //     new SPLAT.Vector3(0, 0, 0),
+    //     //   )
+    //     // }, 1000)
+    //   }
+    // })
   }
 
   const handlePathUpload = (e) => {

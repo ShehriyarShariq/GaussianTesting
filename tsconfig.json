@@ -20,12 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "src",
-    "Backup/App.tsx",
-    "Backup/App copy.tsx",
-    "Backup/ThreeApp.tsx",
-    "Backup/ThreeFiber.tsx"
-  ],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
