@@ -12,7 +12,7 @@
     "@types/react-dom": "^18.2.14",
     "@types/three": "^0.158.1",
     "@xspada/xspada--three-quickviewer": "^0.0.1",
-    "@xspada/xspada-quick-viewer": "^0.0.118",
+    "@xspada/xspada-quick-viewer": "^0.0.125",
     "quick-viewer-old": "npm:@xspada/xspada-quick-viewer@^0.0.114",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
