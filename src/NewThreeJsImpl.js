@@ -220,8 +220,8 @@ const NewThreeJsImpl = () => {
       vertexColors: true,
     })
 
-    const pointCloud = new THREE.Points(geometry, shaderMaterial.current)
-    // const pointCloud = new THREE.Points(geometry, material)
+    // const pointCloud = new THREE.Points(geometry, shaderMaterial.current)
+    const pointCloud = new THREE.Points(geometry, material)
     scene.current.add(pointCloud)
 
     const serializedScene = {
